@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Real Estate</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+      integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      html,
+      body {
+        min-height:90%;
+      }
+      body,
+      div,
+      form,
+      input,
+      select,
+      textarea,
+      label {
+        padding: 10px;
+        margin: 10;
+        outline: none;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 18 px;
+        color: rgb(99, 125, 122);
+        line-height: 22px;
+      }
+      h1 {
+        position: absolute;
+        margin: 0;
+        font-size: 40px;
+        color: #fff;
+        z-index: 2;
+        line-height: 83px;
+      }
+      .testbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: inherit;
+        padding: 20px;
+      }
+      form {
+        width: 100%;
+        padding: 20px;
+        border-radius: 6px;
+        background: #fff;
+        box-shadow: 0 0 8px #000000;
+      }
+      .banner {
+        position: relative;
+        height: 300px;
+        /* background-image: url("./images/WhatsApp\ Im2022-09-15.jpeg"); */
+        background-image: url("34.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .banner::after {
+        content: "";
+        background-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      input,
+      select,
+      textarea {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+      input {
+        width: calc(100% - 10px);
+        padding: 5px;
+      }
+      input[type="date"] {
+        padding: 4px 5px;
+      }
+      textarea {
+        width: calc(100% - 12px);
+        padding: 5px;
+      }
+      .item:hover p,
+      .item:hover i,
+      .question:hover p,
+      .question label:hover,
+      input:hover::placeholder {
+        color: #cc7a00;
+      }
+      .item input:hover,
+      .item select:hover,
+      .item textarea:hover {
+        border: 1px solid transparent;
+        box-shadow: 0 0 3px 0 #cc7a00;
+        color: #cc7a00;
+      }
+      .item {
+        position: relative;
+        margin: 10px 0;
+      }
+      .item span {
+        color: red;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+        display: none;
+      }
+      .item i,
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        position: absolute;
+        font-size: 20px;
+        color: #cc7a00;
+      }
+      .item i {
+        right: 1%;
+        top: 30px;
+        z-index: 1;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+        right: 1%;
+        z-index: 2;
+        opacity: 0;
+        cursor: pointer;
+      }
+      input[type="radio"],
+      input[type="checkbox"] {
+        display: none;
+      }
+      label.radio {
+        position: relative;
+        display: inline-block;
+        margin: 5px 20px 15px 0;
+        cursor: pointer;
+      }
+      .question span {
+        margin-left: 30px;
+      }
+      .question-answer label {
+        display: block;
+      }
+      label.radio:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+      }
+      input[type="radio"]:checked + label:before,
+      label.radio:hover:before {
+        border: 2px solid #cc7a00;
+      }
+      label.radio:after {
+        content: "";
+        position: absolute;
+        top: 6px;
+        left: 5px;
+        width: 8px;
+        height: 4px;
+        border: 3px solid #cc7a00;
+        border-top: none;
+        border-right: none;
+        transform: rotate(-45deg);
+        opacity: 0;
+      }
+      input[type="radio"]:checked + label:after {
+        opacity: 1;
+      }
+      .btn-block {
+        margin-top: 10px;
+        text-align: center;
+      }
+      button {
+        width: 150px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #cc7a00;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #ff9800;
+      }
+      @media (min-width: 568px) {
+        .name-item,
+        .city-item {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+        .name-item input,
+        .name-item div {
+          width: calc(50% - 20px);
+        }
+        .name-item div input {
+          width: 97%;
+        }
+        .name-item div label {
+          display: block;
+          padding-bottom: 5px;
+        }
+      }
+
+      .title {
+        padding-top: 145px;
+        color: rgb(255, 250, 250);
+      }
+
+      .response{
+        padding-left: 620px;
+        padding-top: 30px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="testbox">
+      <form action="/predict" method="post">
+        <div class="banner">
+          <h1 class="title">Predicting Real Estate prices</h1>
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="location">Location<span>*</span></label>
+          <!-- <input id="sqft" type="text" name="location" required /> -->
+          <select id="location" name="location" required class="form-control">
+            <option value="Alandi Road"> </option>
+            <option value="Alandi Road">Alandi Road</option>
+            <option value="Ambegaon Budruk">Ambegaon Budruk</option>
+            <option value="Anandnagar">Anandnagar</option>
+            <option value="Aundh">Aundh</option>
+            <option value="Aundh Road">Aundh Road</option>
+            <option value="Balaji Nagar">Balaji Nagar</option>
+            <option value="Baner road">Baner road</option>
+            <option value="Bhandarkar Road">Bhandarkar Road</option>
+            <option value="Bibvewadi">Bibvewadi</option>
+            <option value="Bopodi">Bopodi</option>
+            <option value="Budhwar Peth">Budhwar Peth</option>
+            <option value="Camp">Camp</option>
+            <option value="Chandan Nagar">Chandan Nagar</option>
+            <option value="Dapodi">Dapodi</option>
+            <option value="Deccan Gymkhana">Deccan Gymkhana</option>
+            <option value="Dehu Road">Dehu Road</option>
+            <option value="Dhankawadi">Dhankawadi</option>
+            <option value="Erandwane">Erandwane</option>
+            <option value="Fatima Nagar">Fatima Nagar</option>
+            <option value="Fergusson College Road">Fergusson College Road</option>
+            <option value="Ganesh Peth">Ganesh Peth</option>
+            <option value="Ganeshkhind">Ganeshkhind</option>
+            <option value="Ghorpadi">Ghorpadi</option>
+            <option value="Hadapsar">Hadapsar</option>
+            <option value="Gultekdi">Gultekdi</option>
+            <option value="Kalyani Naga">Kalyani Nagar</option>
+            <option value="Jangali Maharaj Road">Jangali Maharaj Road</option>
+            <option value="Karve Road">Karve Road</option>
+            <option value="Katraj">Katraj</option>
+            <option value="Khadaki">Khadaki</option>
+            <option value="Kondhwa">Kondhwa</option>
+            <option value="Koregaon Park">Koregaon Park</option>
+            <option value="Kothrud">Kothrud</option>
+            <option value="Padmavati">Padmavati</option>
+            <option value="Paud Road">Paud Road</option>
+            <option value="Pirangut">Pirangut</option>
+            <option value="Raviwar Peth">Raviwar Peth</option><option value="Pashan">Pashan</option>
+            <option value="Shaniwar Pet">Shaniwar Peth</option>
+            <option value="Senapati Bapat Road">Senapati Bapat Road</option>
+            <option value="Shivaji Naga">Shivaji Nagar</option>
+            <option value="Shukrawar Peth">Shukrawar Peth</option>
+            <option value="Sinhagad Road">Sinhagad Road</option>
+            <option value="Swargate">Swargate</option>
+            <option value="Viman Nagar">Viman Nagar</option>
+            <option value="Vishrant Wadi">Vishrant Wadi</option>
+            <option value="Wadgaon Sheri">Wadgaon Sheri</option>
+            <option value="Wakadewadi">Wakadewadi</option>
+            <option value="Warje">Warje</option>
+            <option value="Yerawada">Yerawada</option>
+            <option value="Uruli Devachi">Uruli Devachi</option>
+
+          </select>        
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="sqft">sqft<span>*</span></label>
+          <input id="sqft" type="text" placeholder="400-2000" name="sq_ft" required />
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="bhk">BHK<span>*</span></label>
+          <select id="bhk" name="bhk" required class="form-control">
+            <option value="1"></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5"></option>
+          </select>
+        </div>
+        <div class="btn-block">
+          <button type="submit">SUBMIT</button>
+          <!-- <input type="submit" value="SUBMIT"> -->
+        </div>
+
+
+        <br>
+        <br>
+        <div class="response" >
+          {{ prediction_text }}
+        </div>
+        
+      </form>
+    </div>
+  </body>
+</html>
